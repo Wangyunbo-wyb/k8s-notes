@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-learn-deployment
+spec:
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-learn
+  template:
+    metadata:
+      labels:
+        app: k8s-learn
+    spec:
+      containers:
+        - image: 3437108157wyb/k8s-learn:liveness
+          name: k8s-learn-container
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 3
+            periodSeconds: 3

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+# kind 表示我们要创建的资源是 Deployment 类型
+kind: Deployment
+metadata:
+  name: k8s-learn-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8s-learn
+  # 模板定义了 Deployment 管理的 Pod 的模板
+  template:
+    metadata:
+      labels:
+        app: k8s-learn
+    spec:
+      containers:
+        - image: 3437108157wyb/k8s-learn
+          name: k8s-learn-container
