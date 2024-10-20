@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-learn-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: k8s-learn
+  template:
+    metadata:
+      labels:
+        app: k8s-learn
+    spec:
+      containers:
+        - image: 3437108157wyb/k8s-learn:v2
+          name: k8s-learn-container

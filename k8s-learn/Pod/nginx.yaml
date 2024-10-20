@@ -1,0 +1,12 @@
+# nginx.yaml
+apiVersion: v1
+# kind 表示我们要创建的资源是 Pod 类型
+kind: Pod
+metadata:
+  # 要创建的 Pod 的名字，这个名字需要是唯一的
+  name: nginx-pod
+spec:
+  # 表示要运行的容器的名称和镜像名称。镜像默认来源 DockerHub。
+  containers:
+    - name: nginx-container
+      image: nginx
