@@ -1,0 +1,9 @@
+# k8s-learn.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-learn
+spec:
+  containers:
+    - name: k8s-learn-container
+      image: 3437108157wyb/k8s-learn
